@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+			<title>
+				Prueba Parqueadero
+			</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand|Dancing+Script">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+
+	<body>
+
+		<!-- Formulario De Placas -->
+		<form action="javascript:void(0);" autocomplete="off" class="form">
+			<div class="ctn-img-title-park">
+				<img src="https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Old-Car-2-512.png" alt="Park" title="Park" class="img-park">
+				<h1 class="title-form-park">
+					Formulario Parqueadero
+				</h1>
+			</div>
+			
+			<div class="ctn-input">
+				<label for="user" class="support-text">
+					Placa Usuario
+				</label>
+				<input type="text" id="shield" class="effect-input" minlength="5" maxlength="10" autocomplete="off">
+				<span class="bar">
+					<i class="fa fa-times clear-input" aria-hidden="true"></i>
+				</span>
+			</div>
+			
+			<div class="ctn-btns">
+				<button type="button" id="exit" class="btns" data-modal="#modal">
+					Finalizar
+				</button>
+				<input type="submit" class="btns" value="Agregar">
+			</div>
+		</form>
+
+		<!-- Contenedor de la lista de placas -->
+		<div id="ctn-list-shields" class="ctn-list-shields"></div>
+
+		<!-- Alertas -->
+		<div>
+			<p id="danger" class="danger"></p>
+			<p id="success" class="success"></p>
+		</div>
+
+		<!-- Modal -->
+		<div id="modal" class="modal">
+			<div class="ctn-modal">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="title-header-modal">
+							Datos De La Placa
+						</h2>
+
+						<button class="btn-close-modal">
+							<i class="fa fa-times-circle" aria-hidden="true" data-modal="#modal"></i>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<p class="content-modal">
+							<span class="bold price">
+								Lunes a viernes de 8:00 am - 07:00 pm
+							</span>
+
+							<span class="bold price">
+								$70 pesos
+							</span>
+						</p>
+
+						<p class="content-modal">
+							<span class="bold price">
+								Lunes a viernes de 7:00 pm - 08:00 am
+							</span>
+
+							<span class="bold price">
+								$40 pesos
+							</span>
+						</p>
+
+						<p class="content-modal">
+							<span class="bold price">
+								Fines de semana - Sin importar el tiempo
+							</span>
+
+							<span class="bold price">
+								$8.000 pesos
+							</span>
+						</p>
+						
+						<p class="content-modal">
+							<span class="highlight">
+								Número De Placa:
+							</span>
+
+							<span class="data-shield"></span>
+						</p>
+
+						<p class="content-modal">
+							<span class="highlight">
+								Fecha Ingreso:
+							</span>
+
+							<span class="data-shield"></span>
+						</p>
+
+						<p class="content-modal">
+							<span class="highlight">
+								Fecha Salida:
+							</span>
+
+							<span class="data-shield"></span>
+						</p>
+
+						<p class="content-modal">
+							<span class="highlight">
+								Tiempo Estacionado:
+							</span>
+
+							<span class="data-shield"></span>
+						</p>
+
+						<p class="content-modal">
+							<span class="highlight">
+								Precio:
+							</span>
+
+							<span class="bold data-shield"></span>
+						</p>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btns btn-close-footer-modal" data-modal="#modal">
+							Volver A Esperar
+						</button>
+
+						<button type="button" id="delete-shield" class="btns btn-close-footer-modal" data-modal="#modal">
+							Pagar Y Eliminar
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,424 @@
+* {
+  box-sizing: border-box;
+	margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: 0;
+}
+
+html {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: 'Quicksand', cursive;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+}
+
+.no-scroll-y {
+	overflow-y: hidden;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.form {
+	background: url('https://images.unsplash.com/photo-1495435229349-e86db7bfa013?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=929&q=80') rgba(15, 15, 15, 0.9) left top / cover no-repeat scroll;
+	border-radius: 5px;
+  box-shadow: 0 0 15px #1c1c1c;
+  margin: 1.5em auto 0 auto;
+  max-width: 400px;
+  padding: 2em;
+  width: 90%;
+}
+
+.ctn-img-title-park {
+  text-align: center;
+}
+
+.img-park {
+  max-width: 7em;
+	pointer-events: none;
+  width: 90%;
+}
+
+.title-form-park {
+  color: #cdcdcd;
+	font: bold 2em 'Dancing Script', sans-serif;
+	margin-top: 25px;
+}
+
+.ctn-input {  
+  margin-top: 50px;
+  position: relative;
+}
+
+.support-text {
+  color: #cdcdcd;
+  font: normal 15px 'Quicksand', sans-serif;
+	left: 2px;
+  pointer-events: none;
+  position: absolute;
+  top: 2px;
+  transition: 0.3s ease all;
+}
+
+.support-text.active-input {
+  color: #ffffff;
+  font-size: 13px;
+  transform: translateY(-125%);
+}
+
+.effect-input {
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  border-bottom: 1px solid #cdcdcd;
+  color: #ffffff;
+  display: block;
+  font: normal 15px 'Quicksand', sans-serif;
+  height: 30px;
+  letter-spacing: 1px;
+  max-width: 400px;
+  padding: 1em 1.5em 1em 2px;
+  width: 100%;
+}
+
+.validate-input:invalid {
+  border-bottom-color: #ff807c;
+}
+
+.bar:before,
+.bar:after {
+  background-color: #ffffff;
+	border-radius: 50%;
+  bottom: 0;
+  content: '';
+  height: 2px;
+  position: absolute;
+  transition: 0.5s ease all;
+  width: 0;
+}
+
+.bar {
+  display: block;
+  position: relative;
+}
+
+.bar:before {
+	left: auto;
+	right: 0;
+}
+
+.bar.active-input:before,
+.bar.active-input:after {
+	width: 75%;
+}
+
+.validate-input:invalid + .bar:before,
+.validate-input:invalid + .bar:after {
+  background-color: #ff807c;
+}
+
+.clear-input {
+  bottom: 10px;
+  color: #ffffff;
+  cursor: pointer;
+	font-size: 12px;
+	opacity: 0;
+	position: absolute;
+	transition: opacity 1s ease;
+}
+
+.clear-input {
+  right: 5px;
+}
+
+.validate-input:invalid + .bar .clear-input {
+  color: #ff807c;
+}
+
+.success,
+.danger {
+	background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #000000;
+  font: bold 1em 'Quicksand', sans-serif;
+  left: 1%;
+  line-height: 25px;
+  opacity: 0;
+  padding: 0.5em 1em;
+  position: fixed;
+	text-align: center;
+	transition: opacity 1s ease;
+	z-index: 2;
+}
+
+.success {
+	color: #1d7566;
+	top: 1%;
+}
+
+.danger {
+  bottom: 1%;
+	color: #d44141;
+}
+
+.fadein {
+	opacity: 1;
+}
+
+.ctn-btns {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 50px;
+}
+
+.btns {
+	background-color: #35a594;
+	border-radius: 2px;
+	border-style: none;
+	box-shadow: 1px 0px #0d7566,
+		          0px 1px #0d7566,
+		          2px 1px #0d7566,
+							1px 2px #0d7566,
+		 				  3px 2px #0d7566,
+		          2px 3px #0d7566,
+		          4px 3px #0d7566,
+		          3px 4px #0d7566,
+		          5px 4px #0d7566,
+		          4px 5px #0d7566,
+		          6px 5px #0d7566,
+		   				5px 6px #0d7566;
+	color: #ffffff;
+	cursor: pointer;
+	font: normal 13px 'Quicksand', sans-serif;
+	letter-spacing: 1px;
+	margin: 0 5px;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	transition: 0.3s ease all;
+}
+
+.btns:hover,
+.btns:focus {
+	background-color: #32bea6;
+}
+
+.btns:active {
+	box-shadow: 1px 0px #30806f,
+		          0px 1px #30806f,
+		          2px 1px #30806f,
+		          3px 2px #30806f,
+		          2px 3px #30806f,
+		 					4px 3px #30806f,
+		 					3px 4px #30806f;
+  transform: translate(2px);
+}
+
+.ctn-list-shields:before {
+  content: 'Placas Registradas';
+  font: bold 1.75em 'Dancing Script', sans-serif;
+	left: 0;
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  width: 100%;
+}
+
+.ctn-list-shields:empty::before {
+  content: 'No se encuentran placas registradas';
+  font: normal 1.15em 'Quicksand', sans-serif;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.ctn-list-shields {
+  background-color: #1b1e28;
+  color: #cacaca;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #1c1c1c;
+  margin: 1.5em auto;
+  max-width: 400px;
+	padding: 2em;
+	position: relative;
+  width: 90%;
+}
+
+.list-shields:first-of-type {
+	margin-top: 2em;
+}
+
+.list-shields {
+  background-color: #23262e;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #000000;
+	margin-top: 1.25em;
+  padding: 1em;
+}
+
+.ctn-list-shields .list-shields p {
+	color: #cacaca;
+	display: flex;
+	justify-content: space-between;
+	line-height: 25px;
+}
+
+.ctn-list-shields .list-shields p span:first-child {
+  color: #cdcdcd;
+  font-weight: bold;
+}
+
+.modal {
+	background-color: rgba(0, 0, 0, 0.7);
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	transform: scale(0) translate3d(0, -1000px, 0);
+	transition: 1s ease all;
+	width: 100%;
+	z-index: 1;
+}
+
+/* Estilo del scroll para los modales */
+.show-modal::-webkit-scrollbar {
+	width: 5px;
+}
+
+.show-modal::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1) inset,
+							0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+/* Efecto de los modales cuando se muestran */
+.show-modal {
+	opacity: 1;
+	transform: scale(1) translate3d(0, 0, 0);
+}
+
+.modal .ctn-modal {
+  left: 50%;
+	margin: auto;
+  max-width: 500px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+}
+
+.modal .ctn-modal .modal-content {
+	background-color: #1b1e28;
+	border-radius: 5px;
+	font: normal 16px 'Quicksand', sans-serif;
+	overflow-x: hidden;
+	position: relative;
+}
+
+/* Encabezados de los modales */
+.modal .ctn-modal .modal-content .modal-header {
+	align-items: center;
+	border-bottom: 1px solid #dcdcdc;
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+	width: 100%;
+}
+
+/* Títulos encabezados de los modales */
+.modal .ctn-modal .modal-content .modal-header .title-header-modal {
+	color: #ffffff;
+	font: normal 2em 'Dancing Script', sans-serif;
+}
+
+/* Botones cerrar encabezados de los modales */
+.modal .ctn-modal .modal-content .modal-header .btn-close-modal {
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 20px;
+	height: 20px;
+	text-align: center;
+	transition: color 0.3s ease-in-out;
+	width: 20px;
+}
+
+/* Efecto hover botones cerrar encabezados de los modales */
+.modal .ctn-modal .modal-content .modal-header .btn-close-modal:hover,
+.modal .ctn-modal .modal-content .modal-header .btn-close-modal:focus,
+.modal .ctn-modal .modal-content .modal-header .btn-close-modal:active {
+	color: #cdcdcd;
+}
+
+/* Cuerpo de los modales */
+.modal .ctn-modal .modal-content .modal-body {
+	padding: 1em;
+}
+
+/* Textos en el cuerpo de los modales */
+.modal .ctn-modal .modal-content .modal-body .content-modal {
+	display: flex;
+	justify-content: space-between;
+	line-height: 25px;
+	padding: 5px 0;
+}
+
+/* Textos resaltados en el cuerpo de los modales */
+.modal .ctn-modal .modal-content .modal-body .content-modal .highlight {
+	font-weight: bold;
+}
+
+.modal .ctn-modal .modal-content .modal-body .content-modal .highlight,
+.modal .ctn-modal .modal-content .modal-body .content-modal .data-shield,
+.modal .ctn-modal .modal-content .modal-body .content-modal .price {
+	color: #ffffff;
+	text-align: center;
+}
+
+/* Footers de los modales */
+.modal .ctn-modal .modal-content .modal-footer {
+	border-top: 1px solid #dcdcdc;
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+}
+
+/* Tamaño de portatil hacia atras (portatil, tablet, celular) */
+@media screen and (max-width: 767px) {
+	/* Modales */
+	/* Inicialmente el modal para que cuando se le agregue por jquery "show-modal" apararezca */
+	.modal {
+		transform-origin: right;
+		transform: perspective(500px) rotateY(-90deg);
+		transition: 1s ease all;
+	}
+
+	/* Estilo del scroll para los modales */
+	.show-modal::-webkit-scrollbar {
+		width: 2px;
+	}
+
+	/* Efecto para cuando se muestre el modal */
+	.show-modal {
+		transform: perspective(500px) rotateY(0deg);
+	}
+
+	.modal .ctn-modal .modal-content .modal-body .content-modal .highlight,
+	.modal .ctn-modal .modal-content .modal-body .content-modal .data-shield,
+	.modal .ctn-modal .modal-content .modal-body .content-modal .price {
+		width: 100%;
+	}
+}
