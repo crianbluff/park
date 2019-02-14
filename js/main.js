@@ -29,17 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				shields = [];
 			}
 	}
-	
-	//Función para cambiar el formate de la fecha
-	function getTimeStr() {
-		let dt = new Date();
-		let d = dt.toLocaleDateString();
-		let t = dt.toLocaleTimeString();
-		t = t.replace(/\u200E/g, '');
-		t = t.replace(/^([^\d]*\d{1,2}:\d{1,2}):\d{1,2}([^\d]*)$/, '$1$2');
-		let result = `${ d } ${ t }`;
-		return result;
-	}
 
 	// Función para sacar la diferencia en horas entre 2 fechas
 	function diffHours(dt2, dt1) {
@@ -56,13 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function captureDateIng() {
 		// Variable para guardar la hora de ingreso
-		let dateIng = getTimeStr();
+		let dateIng = new Date().toLocaleString('en-Us', {
+			hour12: false
+		});
 		return dateIng;
 	}
 
 	function captureDateExit() {
 		// Variable para guardar la hora de salida
-		let dateExit = getTimeStr();
+		let dateExit = new Date().toLocaleString('en-Us', {
+			hour12: false
+		});
 		return dateExit;
 	}
 
@@ -110,11 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
 				let priceHour = 0;
 				// Remplaza a ese objeto el atributo la fecha salida
 				obj.dateExit = captureDateExit();
-				obj['timeElapsed'] = `${ diffHours(new Date(obj.dateIng), new Date(obj.dateExit)) } minutos`;
+				obj['timeElapsed'] = `${ diffHours( new Date( obj.dateIng ), new Date( obj.dateExit ) ) } minutos`;
 				// Si es un día entre semana el objeto price va a hacer de minuto a 70 pesos
 				if ( obj['dateDayIng'] === 'Lunes' || obj['dateDayIng'] === 'Martes' || obj['dateDayIng'] === 'Miercoles' || obj['dateDayIng'] === 'Jueves' || obj['dateDayIng'] === 'Viernes' ) {
 					new Date().getHours() >= 19 || new Date().getHours() <= 7 ? priceHour = 40 : priceHour = 70;
-					obj['price'] = `$${ parseInt(diffHours(new Date(obj.dateIng), new Date(obj.dateExit))) * priceHour } pesos`;
+					obj['price'] = `$${ diffHours( new Date( obj.dateIng ), new Date( obj.dateExit ) ) * priceHour } pesos`;
 					// Si es un fin de semana el objeto price va hacer de 8000 pesos sin importar el tiempo
 					insertDataShieldInModal(obj);
 				}
